@@ -1,0 +1,32 @@
+﻿﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Sammy.js example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../Scripts/sammy-0.7.5.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      ; (function ($) {
+          var app = $.sammy(function () {
+
+              this.get('#/', function () {
+                  $('#main').text('');
+              });
+
+              this.get('#/test', function () {
+                  $('#main').text('Hello World');
+              });
+          });
+          $(function () {
+              app.run()
+          });
+      })(jQuery);
+    </script>
+</head>
+<body>
+    <div id="main"></div>
+    <ul id="link">
+        <li><a href="#/test">Click me!</a></li>
+        <li><a href="#/">Back</a></li>
+    </ul>
+</body>
+</html>
