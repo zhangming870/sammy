@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="001\HtmlPage1.html" />
+    <Content Include="Context\HtmlPage1.html" />
+    <Content Include="Context\JavaScript1.js" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
