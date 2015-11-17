@@ -59,7 +59,9 @@
   <ItemGroup>
     <Content Include="Context\HtmlPage1.html" />
     <Content Include="Context\JavaScript1.js" />
-    <Content Include="data\items.json" />
+    <Content Include="OfficialTutorial\items.json" />
+    <Content Include="templates\item.template" />
+    <Content Include="templates\item_detail.template" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,6 +77,23 @@
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\plugins\sammy.cache.js" />
+    <Content Include="Scripts\plugins\sammy.data_location_proxy.js" />
+    <Content Include="Scripts\plugins\sammy.ejs.js" />
+    <Content Include="Scripts\plugins\sammy.form.js" />
+    <Content Include="Scripts\plugins\sammy.googleanalytics.js" />
+    <Content Include="Scripts\plugins\sammy.haml.js" />
+    <Content Include="Scripts\plugins\sammy.handlebars.js" />
+    <Content Include="Scripts\plugins\sammy.json.js" />
+    <Content Include="Scripts\plugins\sammy.meld.js" />
+    <Content Include="Scripts\plugins\sammy.mustache.js" />
+    <Content Include="Scripts\plugins\sammy.nested_params.js" />
+    <Content Include="Scripts\plugins\sammy.path_location_proxy.js" />
+    <Content Include="Scripts\plugins\sammy.pure.js" />
+    <Content Include="Scripts\plugins\sammy.storage.js" />
+    <Content Include="Scripts\plugins\sammy.template.js" />
+    <Content Include="Scripts\plugins\sammy.title.js" />
+    <Content Include="Scripts\plugins\sammy.tmpl.js" />
     <Content Include="Scripts\sammy-0.7.5.js" />
     <Content Include="Scripts\sammy-0.7.5.min.js" />
     <Content Include="Web.config" />
@@ -83,6 +102,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
