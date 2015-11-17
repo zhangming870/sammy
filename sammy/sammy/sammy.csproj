@@ -57,6 +57,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Context\HtmlPage1.html" />
+    <Content Include="Context\JavaScript1.js" />
     <Content Include="data\items.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
