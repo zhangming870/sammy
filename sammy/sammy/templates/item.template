@@ -11,5 +11,5 @@
   <div class="item-price">
     $<%= item.price %>
   </div>
-  <div>wocao</div>
+  <a href="#/testMain">main</a>
 </div>

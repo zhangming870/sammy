@@ -2,11 +2,27 @@
 /// <reference path="C:\Users\mzhang\Source\Repos\sammy\sammy\sammy\Scripts/sammy-0.7.5.js" />
 (function ($) {
 
+    var notMainApp = $.sammy('#main', function () {
+        this.get('#/testnotMain', function (context) {
+            var testnotMain = 0;
+        });
+    });
+
+    
+
     var app = $.sammy('#main', function () {
 
         this.use('Template');
         this.use('Session');
 
+        this.get('/testMain', function (context) {
+            var testMain = 0;
+        });
+
+        this.get('#/testMain', function (context) {
+            var testMain = 0;
+        });
+        
         this.get('#/', function (context) {
             /*need to clear the content area before loading the partials*/
             context.app.swap('');
@@ -62,6 +78,8 @@
 
     $(function () {
         app.run('#/');
+
+        notMainApp.run();
     });
 
 
