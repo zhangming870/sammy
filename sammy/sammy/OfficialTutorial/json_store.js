@@ -5,6 +5,7 @@
     var app = $.sammy('#main', function () {
 
         this.use('Template');
+        this.use('Session');
 
         this.get('#/', function (context) {
             /*need to clear the content area before loading the partials*/
@@ -33,6 +34,19 @@
             if (!this.item) { return this.notFound(); }
             /*we use partial() which internally calls render and then swaps our the content of the entire app element.*/
             this.partial('/templates/item_detail.template');
+        });
+
+        var cart = {};
+
+        this.post('#/cart', function (context) {
+            var item_id = this.params['item_id'];
+            if (!cart[item_id]) {
+                // this item is not yet in our cart
+                // initialize its quantity with 0
+                cart[item_id] = 0;
+            }
+            cart[item_id] += parseInt(this.params['quantity'], 10);
+            this.log("The current cart: ", cart);
         });
 
         this.around(function (callback) {
