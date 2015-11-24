@@ -51,18 +51,41 @@
             /*we use partial() which internally calls render and then swaps our the content of the entire app element.*/
             this.partial('/templates/item_detail.template');
         });
-
-        var cart = {};
+        /*custom event*/
+        /* this inside of a bind() is also an EventContext*/
+        this.bind('update-cart', function () {
+            var sum = 0;
+            $.each(this.session('cart') || {}, function (id, quantity) {
+                sum += quantity;
+            });
+            $('.cart-info')
+                .find('.cart-items').text(sum).end()
+                .animate({ paddingTop: '30px' })
+                .animate({ paddingTop: '10px' });
+        });
 
         this.post('#/cart', function (context) {
             var item_id = this.params['item_id'];
+            // fetch the current cart
+            /*either return the current value if set, or if not set, set the value to whatever is returned from the function/callback.*/
+            var cart = this.session('cart', function () {
+                return {};
+            });
             if (!cart[item_id]) {
                 // this item is not yet in our cart
                 // initialize its quantity with 0
                 cart[item_id] = 0;
             }
             cart[item_id] += parseInt(this.params['quantity'], 10);
+            // store the cart
+            this.session('cart', cart);
             this.log("The current cart: ", cart);
+            this.trigger('update-cart');
+        });
+
+        this.bind('run', function () {
+            // initialize the cart display
+            this.trigger('update-cart');
         });
 
         this.around(function (callback) {
